@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(90deg,rgba(2,0,36,1) 0%, rgba(9,98,121,1) 35%, rgba(0,212,255,1)100%);
+		}
+		.container{
+			
+              font-family: 'Gill Sans' Calibri;
+              color: white;
+              display: flex;
+              width: 100wh;
+              height: 100vh;
+              align-items: center;
+              justify-content: center;
+              font-size: 5rem;
+              
+		}
+		#clock{
+			border:3px solid white;
+			padding: 1rem;
+		}
+		.container span{
+			margin-left: 10px;
+		}
+        #ampm{
+        	font-size: 3rem;
+        	align-items: end;
+        }
+	</style>
+	<title></title>
+</head>
+<body>
+	<div class="container">
+    <div id="clock">
+    	<span id="hr">00</span>
+    	<span>:</span>
+    	<span id="mi">00</span>
+    	<span>:</span>
+    	<span id="sec">00</span>
+    	<span id="ampm">AM</span>
+    </div>
+</div>
+
+<script type="text/javascript">
+	let ap='AM'
+	function time()
+	{
+		console.log('hai')
+	let dateTime=new Date()
+	let hour=dateTime.getHours()
+	let min=dateTime.getMinutes()
+	let sec=dateTime.getSeconds()
+	console.log(hour,min,sec)
+     if(hour>12)
+     	{hour=hour-12;
+     	ap='PM';
+     }
+
+	let h=document.getElementById('hr')
+	let m=document.getElementById('mi')
+	let s=document.getElementById('sec')
+    document.getElementById('ampm').innerHTML=ap
+	h.innerHTML=setzero(hour);
+	m.innerHTML=setzero(min);
+	s.innerHTML=setzero(sec);
+	
+	}
+
+	function setzero(num)
+	{
+		return num<10?'0'+num:num
+	}
+    let i=0
+    
+    setInterval(time,1)
+
+</script>
+</body>
+</html>
